@@ -1,0 +1,36 @@
+{
+    "count": 1,
+    "next": null,
+    "previous": null,
+    "results": [
+        {
+            "id": "b094a60f-9471-4019-aafe-381128db9814",
+            "breed": {
+                "id": "976df73f-aa7e-436d-8898-a24dc6f3c499",
+                "name": "сибирская кошка",
+                "code": "siberian_cat"
+            },
+            "species": {
+                "id": "166941d7-672d-438a-8f7c-2648715f8872",
+                "name": "кошка",
+                "code": "cat"
+            },
+            "status": null,
+            "doc": {
+                "id": "0892f256-aea8-46bd-8ba1-27ae28e1fa33",
+                "reg_num": "с07032020",
+                "date": "2020-03-07",
+                "cage": "К543"
+            },
+            "owner": null,
+            "gender": {
+                "id": "0045491e-e44e-410d-8efa-4168e3b41721",
+                "name": "мальчик",
+                "code": "m"
+            },
+            "name": "Семён",
+            "age": 3,
+            "photo": "http://130.193.37.179/media/img/sam.jpeg"
+        }
+    ]
+}
