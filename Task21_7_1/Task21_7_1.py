@@ -10,7 +10,7 @@ cats = []
 # По всем элементам json-а
 for el in templates['results']:
     for key in el:
-        # Если вид животного - кошка, создаем объект класса Cat и добавлем его в массив
+        # Если вид животного - кошка, создаем объект класса Cat и добавляем его в массив
         if key == 'species' and el[key]['code'] == 'cat':
             cat = Cat(el['name'], el['gender']['code'], el['age'])
             cats.append(cat)
@@ -20,11 +20,12 @@ try:
     age = int(age)
 except ValueError:
     age = -1
-name = input("Введите имя кошки:")
+name = input("Введите кличку кошки:")
 gender = input("Введите пол кошки (m/g):")
 
+CountCat = {"Имя": {}, "Пол": {}, "Возраст": {}}
 for el in cats:
-    flag = 1 # 0 - не подходит, 1 - подходит
+    flag = 1  # 0 - не подходит, 1 - подходит
     # Если возраст указан и совпадает или возраст не указан
     if age >= 0 and age == el.age or age == -1:
         flag *= 1
@@ -43,3 +44,26 @@ for el in cats:
     # Если подходит
     if flag == 1:
         print(f"Кличка: {el.name}, пол: {el.gender}, возраст: {el.age}")
+
+    # Подсчитаем количество питомцев по всем значениям параметров (статистика)
+    if el.name in CountCat['Имя']:
+        CountCat['Имя'][el.name] += 1
+    else:
+        CountCat['Имя'][el.name] = 1
+
+    if el.gender in CountCat['Пол']:
+        CountCat['Пол'][el.gender] += 1
+    else:
+        CountCat['Пол'][el.gender] = 1
+
+    if el.age in CountCat['Возраст']:
+        CountCat['Возраст'][el.age] += 1
+    else:
+        CountCat['Возраст'][el.age] = 1
+
+# Вывод статистики
+print("ИТОГО: ")
+for param in CountCat:
+    print(" ", param)
+    for val in CountCat[param]:
+        print(f'   {val} - {CountCat[param][val]} питомец(-мца/-мцев)')
